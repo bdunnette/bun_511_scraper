@@ -12,10 +12,10 @@ jobs:
       contents: write # Needed to commit changes
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
@@ -26,7 +26,7 @@ jobs:
         run: bun run scrape.js
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Automated: Daily update of mn_cameras.csv"
           file_pattern: 'mn_cameras.csv'
